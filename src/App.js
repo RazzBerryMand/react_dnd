@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import Item from "./Item.js";
 import Target from "./Target.js";
+import { DragDropContext } from "react-dnd";
+import HTML5Backend from "react-dnd-html5-backend";
 
 class App extends Component {
   state = {
@@ -35,4 +37,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default DragDropContext(HTML5Backend)(App);
