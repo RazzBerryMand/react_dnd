@@ -1,9 +1,35 @@
 import React, { Component } from "react";
+import { DragSource } from "react-dnd";
 
-class Preview extends Component {
+const itemSource = {
+  beginDrag(props) {
+    return props.item;
+  },
+  endDrag(props, monitor, component) {
+    return props.handleDrop(props.item.id);
+  }
+};
+
+function collect(connect, monitor) {
+  return {
+    connectDragSource: connect.dragSource(),
+    connectDragPreview: connect.dragPreview(),
+    isDragging: monitor.isDragging()
+  };
+}
+
+class Item extends Component {
   render() {
-    return <div className="item">{this.props.item.name}</div>;
+    const { isDragging, connectDragSource, item } = this.props;
+    const opacity = isDragging ? 0 : 1;
+
+    return connectDragSource(
+      <div className="item" style={{ opacity }}>
+        <span>{item.name}</span>
+      </div>
+    );
+    // return <div className="item">{this.props.item.name}</div>;
   }
 }
 
-export default Preview;
+export default DragSource("item", itemSource, collect)(Item);
