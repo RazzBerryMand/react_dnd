@@ -81,7 +81,8 @@ class App extends Component {
 
         <div className="app-intro">
           <div className="app-container">
-            {/* <div className="item-container">
+            <div className="item-container">
+              <h1>Drag these items to the bin!</h1>
               {this.state.items.map((item, index) => (
                 <Item
                   key={item.id}
@@ -89,11 +90,12 @@ class App extends Component {
                   handleDrop={id => this.deleteItem(id)}
                 />
               ))}
-            </div> */}
-            {/* <Target /> */}
+            </div>
+            <Target />
           </div>
 
           <div className="card-container">
+            <h1>Drag and drop to re-order items!</h1>
             {this.state.cards.map((card, i) => (
               <Card
                 key={card.id}

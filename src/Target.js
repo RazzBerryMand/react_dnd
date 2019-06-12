@@ -16,7 +16,7 @@ class Target extends Component {
 
     return connectDropTarget(
       <div className="target" style={{ background: backgroundColor }}>
-        Target
+        Recycle Bin
       </div>
     );
 
