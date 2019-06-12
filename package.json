@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "lodash.flow": "^3.5.0",
     "react": "^16.8.6",
     "react-dnd": "^7.6.0",
     "react-dnd-html5-backend": "^7.6.0",
