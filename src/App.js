@@ -15,6 +15,8 @@ class App extends Component {
     ]
   };
 
+  deleteItem = id => {};
+
   render() {
     return (
       <div className="App">
@@ -26,7 +28,11 @@ class App extends Component {
           <div className="app-container">
             <div className="item-container">
               {this.state.items.map((item, index) => (
-                <Item key={item.id} item={item} />
+                <Item
+                  key={item.id}
+                  item={item}
+                  handleDrop={id => this.deleteItem(id)}
+                />
               ))}
             </div>
             <Target />

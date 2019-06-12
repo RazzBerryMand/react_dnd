@@ -6,6 +6,9 @@ const itemSource = {
     return props.item;
   },
   endDrag(props, monitor, component) {
+    if (!monitor.didDrop()) {
+      return;
+    }
     return props.handleDrop(props.item.id);
   }
 };
