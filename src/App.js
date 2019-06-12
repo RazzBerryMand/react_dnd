@@ -5,6 +5,7 @@ import Target from "./Target.js";
 import Card from "./Card";
 import { DragDropContext } from "react-dnd";
 import HTML5Backend from "react-dnd-html5-backend";
+const update = require("immutability-helper");
 
 class App extends Component {
   state = {
@@ -55,6 +56,19 @@ class App extends Component {
 
       return { items };
     });
+  };
+
+  moveCard = (dragIndex, hoverIndex) => {
+    const { cards } = this.state;
+    const dragCard = cards[dragIndex];
+
+    this.setState(
+      update(this.state, {
+        cards: {
+          $splice: [[dragIndex, 1], [hoverIndex, 0, dragCard]]
+        }
+      })
+    );
   };
 
   render() {
